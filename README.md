@@ -1,4 +1,36 @@
+# My Contentful Pixabay Web App
+
 This project was bootstrapped with [Create Contentful App](https://github.com/contentful/create-contentful-app).
+
+## Approach
+
+In this project, I took a structured approach to integrate the Pixabay API into a field-level app for Contentful. The app allows users to search for images and embed them directly into Contentful entries. Key aspects of my approach include:
+
+- **Component-based architecture**: I designed the app leveraging React Components and Emotion CSS-in-JS for styling, ensuring a modular and maintainable codebase.
+- **Pixabay API integration**: A dedicated service layer was created to handle API requests to Pixabay, making it easier to manage API interactions.
+- **Scalable design**: The app was designed to handle multiple image selections, pagination, and image removal while maintaining a clean and user-friendly UI.
+- **Efficient state management**: React's state management was employed to track selected images, search results, and pagination, optimizing the overall user experience.
+- **Image selection limitation**: I made the assumption to limit the user to add 5 images, as this seemed like a reasonable number to demonstrate the functionality without overwhelming the example application.
+
+## Areas for Future Improvement
+
+While the app is functional, several improvements can be made to enhance the overall experience and future scalability:
+
+### 1. Use of More Modern Technologies
+   Future iterations could leverage more modern technologies like **TypeScript**, **Next.js**, **Vite**, or **Bun** for improved performance, scalability, and maintainability.
+
+### 2. Advanced Search Options
+   The Pixabay API supports advanced search features such as filtering by popularity, categories, or specific image types. Adding these filters could provide users with more precise search results, improving the usability of the app.
+
+### 3. Improved Metadata Handling
+   Currently, the app only stores the `largeImageURL`. By storing more metadata, such as the image ID, we could restrict users from selecting the same image multiple times (if required by the product), and we could optimize performance by fetching smaller or alternative image sizes when needed.
+
+### 4. Localization
+   As Contentful is used internationally, introducing **localization** for all user-facing text would make the app accessible to a broader audience, supporting different languages and regions.
+
+### 5. Logging and Analytics
+   To better understand how users interact with the app, logging could be introduced. This would help track common user actions, monitor any error states in production, and gain insights into how the app is performing in real-life environments.
+
 
 ## Available Scripts
 
