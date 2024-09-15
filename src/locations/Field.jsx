@@ -39,8 +39,8 @@ const AddMoreButton = styled(Button)`
 
 // React Component
 const Field = () => {
-  const sdk = useSDK();  // Access the Contentful SDK
-  const [imageUrls, setImageUrls] = useState([]);  // Initialize as an empty array
+  const sdk = useSDK();
+  const [imageUrls, setImageUrls] = useState([]);
 
   useEffect(() => {
     // Start the auto-resizer to automatically adjust the iFrame size
@@ -50,21 +50,20 @@ const Field = () => {
     const initialValue = sdk.field.getValue();
 
     if (Array.isArray(initialValue)) {
-      setImageUrls(initialValue);  // If the value is an array, set it
+      setImageUrls(initialValue);
     } else {
-      setImageUrls([]);  // Otherwise, initialize as an empty array
+      setImageUrls([]);
     }
   }, [sdk]);
 
   // Open dialog to select multiple images from Pixabay
   const openPixabayDialog = async () => {
-    // Pass current images to the dialog and allow selecting multiple
     const selectedImages = await sdk.dialogs.openCurrentApp({
       title: 'Select Images from Pixabay',
       width: 'fullWidth',
       minHeight: '80vh',
       parameters: {
-        maxImages: MAX_IMAGES - imageUrls.length,  // Limit the selection to the remaining slots
+        maxImages: MAX_IMAGES - imageUrls.length,
       },
     });
 
@@ -72,15 +71,15 @@ const Field = () => {
     if (selectedImages && Array.isArray(selectedImages)) {
       const updatedImageUrls = [...imageUrls, ...selectedImages].slice(0, MAX_IMAGES);
       setImageUrls(updatedImageUrls);
-      sdk.field.setValue(updatedImageUrls);  // Store the updated image URLs in the field
+      sdk.field.setValue(updatedImageUrls);
     }
   };
 
   // Remove an individual image
   const removeImage = (index) => {
-    const updatedImageUrls = imageUrls.filter((_, i) => i !== index); // Filter out image to remove
+    const updatedImageUrls = imageUrls.filter((_, i) => i !== index);
     setImageUrls(updatedImageUrls);
-    sdk.field.setValue(updatedImageUrls);  // Update the field with the remaining images
+    sdk.field.setValue(updatedImageUrls);
   };
 
   return (

@@ -46,7 +46,8 @@ const Dialog = () => {
     setHasSearched(true);
 
     try {
-      const data = await searchPixabayImages(query, newPage, imagesPerPage);  // Use the service
+       // Use the Pixabay Image service
+      const data = await searchPixabayImages(query, newPage, imagesPerPage);
 
       if (data.hits.length === 0) {
         setImages([]);

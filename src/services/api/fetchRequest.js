@@ -27,7 +27,6 @@ export default async function fetchRequest(url, options = {}) {
   
       return data;
     } catch (error) {
-      // Log the error and rethrow it so it can be handled by the calling code
       console.error('Fetch request failed:', error);
       throw error;
     }
